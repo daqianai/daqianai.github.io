@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Runtime API Examples | DaQianAI</title>
+    <meta name="description" content="The ultimate AI">
+    <meta name="generator" content="VitePress v1.6.3">
+    <link rel="preload stylesheet" href="/assets/style.qp7qGaqN.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    
+    <script type="module" src="/assets/app.35k9OIKm.js"></script>
+    <link rel="preload" href="/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="modulepreload" href="/assets/chunks/theme.51YFH3_c.js">
+    <link rel="modulepreload" href="/assets/chunks/framework.BDwTZuFy.js">
+    <link rel="modulepreload" href="/assets/docs_examples_vitepress_api-examples.md.Dm37ROcB.lean.js">
+    <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div class="Layout" data-v-d8b57b2d><!--[--><!--]--><!--[--><span tabindex="-1" data-v-fcbfc0e0></span><a href="#VPContent" class="VPSkipLink visually-hidden" data-v-fcbfc0e0>Skip to content</a><!--]--><!----><header class="VPNav" data-v-d8b57b2d data-v-7ad780c2><div class="VPNavBar" data-v-7ad780c2 data-v-9fd4d1dd><div class="wrapper" data-v-9fd4d1dd><div class="container" data-v-9fd4d1dd><div class="title" data-v-9fd4d1dd><div class="VPNavBarTitle has-sidebar" data-v-9fd4d1dd data-v-9f43907a><a class="title" href="/" data-v-9f43907a><!--[--><!--]--><!----><span data-v-9f43907a>DaQianAI</span><!--[--><!--]--></a></div></div><div class="content" data-v-9fd4d1dd><div class="content-body" data-v-9fd4d1dd><!--[--><!--]--><div class="VPNavBarSearch search" data-v-9fd4d1dd><!--[--><!----><div id="local-search"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search"><span class="DocSearch-Button-Container"><span class="vp-icon DocSearch-Search-Icon"></span><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"><kbd class="DocSearch-Button-Key"></kbd><kbd class="DocSearch-Button-Key">K</kbd></span></button></div><!--]--></div><nav aria-labelledby="main-nav-aria-label" class="VPNavBarMenu menu" data-v-9fd4d1dd data-v-afb2845e><span id="main-nav-aria-label" class="visually-hidden" data-v-afb2845e> Main Navigation </span><!--[--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>Home</span><!--]--></a><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-afb2845e data-v-bfe7971f><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-bfe7971f><span class="text" data-v-bfe7971f><!----><span data-v-bfe7971f>APP</span><span class="vpi-chevron-down text-icon" data-v-bfe7971f></span></span></button><div class="menu" data-v-bfe7971f><div class="VPMenu" data-v-bfe7971f data-v-20ed86d6><div class="items" data-v-20ed86d6><!--[--><!--[--><div class="VPMenuLink" data-v-20ed86d6 data-v-7eeeb2dc><a class="VPLink link vp-external-link-icon" href="https://deepwiki.com" target="_blank" rel="noreferrer" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>deepwiki</span><!--]--></a></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/llm" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>LLM</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/agent" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>Agent</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/eval" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>Eval</span><!--]--></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/tutorial" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>Prompt</span><!--]--></a><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-afb2845e data-v-bfe7971f><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-bfe7971f><span class="text" data-v-bfe7971f><!----><span data-v-bfe7971f>MCP</span><span class="vpi-chevron-down text-icon" data-v-bfe7971f></span></span></button><div class="menu" data-v-bfe7971f><div class="VPMenu" data-v-bfe7971f data-v-20ed86d6><div class="items" data-v-20ed86d6><!--[--><!--[--><div class="VPMenuLink" data-v-20ed86d6 data-v-7eeeb2dc><a class="VPLink link vp-external-link-icon" href="https://modelcontextprotocol.io/introduction" target="_blank" rel="noreferrer" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>Protocol</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-20ed86d6 data-v-7eeeb2dc><a class="VPLink link vp-external-link-icon" href="https://deepwiki.com/modelcontextprotocol/python-sdk/" target="_blank" rel="noreferrer" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>Python-SDK</span><!--]--></a></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="/tutorial" tabindex="0" data-v-afb2845e data-v-815115f5><!--[--><span data-v-815115f5>Tutorial</span><!--]--></a><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-afb2845e data-v-bfe7971f><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-bfe7971f><span class="text" data-v-bfe7971f><!----><span data-v-bfe7971f>Docs</span><span class="vpi-chevron-down text-icon" data-v-bfe7971f></span></span></button><div class="menu" data-v-bfe7971f><div class="VPMenu" data-v-bfe7971f data-v-20ed86d6><div class="items" data-v-20ed86d6><!--[--><!--[--><div class="VPMenuLink" data-v-20ed86d6 data-v-7eeeb2dc><a class="VPLink link" href="/docs/openai/guides" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>OpenAI</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-20ed86d6 data-v-7eeeb2dc><a class="VPLink link" href="/docs/anthropic" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>Anthropic</span><!--]--></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-20ed86d6 data-v-7eeeb2dc><a class="VPLink link" href="/docs/examples/vitepress" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>Vitepress</span><!--]--></a></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-afb2845e data-v-bfe7971f><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-bfe7971f><span class="text" data-v-bfe7971f><!----><span data-v-bfe7971f>About</span><span class="vpi-chevron-down text-icon" data-v-bfe7971f></span></span></button><div class="menu" data-v-bfe7971f><div class="VPMenu" data-v-bfe7971f data-v-20ed86d6><div class="items" data-v-20ed86d6><!--[--><!--[--><div class="VPMenuLink" data-v-20ed86d6 data-v-7eeeb2dc><a class="VPLink link" href="/about/team" data-v-7eeeb2dc><!--[--><span data-v-7eeeb2dc>Team</span><!--]--></a></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--]--></nav><!----><div class="VPNavBarAppearance appearance" data-v-9fd4d1dd data-v-3f90c1a5><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-3f90c1a5 data-v-be9742d9 data-v-b4ccac88><span class="check" data-v-b4ccac88><span class="icon" data-v-b4ccac88><!--[--><span class="vpi-sun sun" data-v-be9742d9></span><span class="vpi-moon moon" data-v-be9742d9></span><!--]--></span></span></button></div><div class="VPSocialLinks VPNavBarSocialLinks social-links" data-v-9fd4d1dd data-v-ef6192dc data-v-e71e869c><!--[--><a class="VPSocialLink no-icon" href="/about/team" aria-label="wechat" target="_blank" rel="noopener" data-v-e71e869c data-v-60a9a2d3><span class="vpi-social-wechat"></span></a><!--]--></div><div class="VPFlyout VPNavBarExtra extra" data-v-9fd4d1dd data-v-f953d92f data-v-bfe7971f><button type="button" class="button" aria-haspopup="true" aria-expanded="false" aria-label="extra navigation" data-v-bfe7971f><span class="vpi-more-horizontal icon" data-v-bfe7971f></span></button><div class="menu" data-v-bfe7971f><div class="VPMenu" data-v-bfe7971f data-v-20ed86d6><!----><!--[--><!--[--><!----><div class="group" data-v-f953d92f><div class="item appearance" data-v-f953d92f><p class="label" data-v-f953d92f>Appearance</p><div class="appearance-action" data-v-f953d92f><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" title aria-checked="false" data-v-f953d92f data-v-be9742d9 data-v-b4ccac88><span class="check" data-v-b4ccac88><span class="icon" data-v-b4ccac88><!--[--><span class="vpi-sun sun" data-v-be9742d9></span><span class="vpi-moon moon" data-v-be9742d9></span><!--]--></span></span></button></div></div></div><div class="group" data-v-f953d92f><div class="item social-links" data-v-f953d92f><div class="VPSocialLinks social-links-list" data-v-f953d92f data-v-e71e869c><!--[--><a class="VPSocialLink no-icon" href="/about/team" aria-label="wechat" target="_blank" rel="noopener" data-v-e71e869c data-v-60a9a2d3><span class="vpi-social-wechat"></span></a><!--]--></div></div></div><!--]--><!--]--></div></div></div><!--[--><!--]--><button type="button" class="VPNavBarHamburger hamburger" aria-label="mobile navigation" aria-expanded="false" aria-controls="VPNavScreen" data-v-9fd4d1dd data-v-6bee1efd><span class="container" data-v-6bee1efd><span class="top" data-v-6bee1efd></span><span class="middle" data-v-6bee1efd></span><span class="bottom" data-v-6bee1efd></span></span></button></div></div></div></div><div class="divider" data-v-9fd4d1dd><div class="divider-line" data-v-9fd4d1dd></div></div></div><!----></header><div class="VPLocalNav has-sidebar empty" data-v-d8b57b2d data-v-2488c25a><div class="container" data-v-2488c25a><button class="menu" aria-expanded="false" aria-controls="VPSidebarNav" data-v-2488c25a><span class="vpi-align-left menu-icon" data-v-2488c25a></span><span class="menu-text" data-v-2488c25a>Menu</span></button><div class="VPLocalNavOutlineDropdown" style="--vp-vh:0px;" data-v-2488c25a data-v-6b867909><button data-v-6b867909>Return to top</button><!----></div></div></div><aside class="VPSidebar" data-v-d8b57b2d data-v-42c4c606><div class="curtain" data-v-42c4c606></div><nav class="nav" id="VPSidebarNav" aria-labelledby="sidebar-aria-label" tabindex="-1" data-v-42c4c606><span class="visually-hidden" id="sidebar-aria-label" data-v-42c4c606> Sidebar Navigation </span><!--[--><!--]--><!--[--><div class="no-transition group" data-v-51288d80><section class="VPSidebarItem level-0 has-active" data-v-51288d80 data-v-0009425e><div class="item" role="button" tabindex="0" data-v-0009425e><div class="indicator" data-v-0009425e></div><h2 class="text" data-v-0009425e>Examples</h2><!----></div><div class="items" data-v-0009425e><!--[--><div class="VPSidebarItem level-1 is-link" data-v-0009425e data-v-0009425e><div class="item" data-v-0009425e><div class="indicator" data-v-0009425e></div><a class="VPLink link link" href="/docs/examples/vitepress/markdown-examples" data-v-0009425e><!--[--><p class="text" data-v-0009425e>Markdown Examples</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-1 is-link" data-v-0009425e data-v-0009425e><div class="item" data-v-0009425e><div class="indicator" data-v-0009425e></div><a class="VPLink link link" href="/docs/examples/vitepress/api-examples" data-v-0009425e><!--[--><p class="text" data-v-0009425e>Runtime API Examples</p><!--]--></a><!----></div><!----></div><div class="VPSidebarItem level-1 is-link" data-v-0009425e data-v-0009425e><div class="item" data-v-0009425e><div class="indicator" data-v-0009425e></div><a class="VPLink link link" href="/docs/examples/vitepress/emoji" data-v-0009425e><!--[--><p class="text" data-v-0009425e>Emoji</p><!--]--></a><!----></div><!----></div><!--]--></div></section></div><!--]--><!--[--><!--]--></nav></aside><div class="VPContent has-sidebar" id="VPContent" data-v-d8b57b2d data-v-9a6c75ad><div class="VPDoc has-sidebar has-aside" data-v-9a6c75ad data-v-e6f2a212><!--[--><!--]--><div class="container" data-v-e6f2a212><div class="aside" data-v-e6f2a212><div class="aside-curtain" data-v-e6f2a212></div><div class="aside-container" data-v-e6f2a212><div class="aside-content" data-v-e6f2a212><div class="VPDocAside" data-v-e6f2a212 data-v-cb998dce><!--[--><!--]--><!--[--><!--]--><nav aria-labelledby="doc-outline-aria-label" class="VPDocAsideOutline" data-v-cb998dce data-v-f610f197><div class="content" data-v-f610f197><div class="outline-marker" data-v-f610f197></div><div aria-level="2" class="outline-title" id="doc-outline-aria-label" role="heading" data-v-f610f197>On this page</div><ul class="VPDocOutlineItem root" data-v-f610f197 data-v-53c99d69><!--[--><!--]--></ul></div></nav><!--[--><!--]--><div class="spacer" data-v-cb998dce></div><!--[--><!--]--><!----><!--[--><!--]--><!--[--><!--]--></div></div></div></div><div class="content" data-v-e6f2a212><div class="content-container" data-v-e6f2a212><!--[--><!--]--><main class="main" data-v-e6f2a212><div style="position:relative;" class="vp-doc _docs_examples_vitepress_api-examples" data-v-e6f2a212><div><h1 id="runtime-api-examples" tabindex="-1">Runtime API Examples <a class="header-anchor" href="#runtime-api-examples" aria-label="Permalink to &quot;Runtime API Examples&quot;">​</a></h1><p>This page demonstrates usage of some of the runtime APIs provided by VitePress.</p><p>The main <code>useData()</code> API can be used to access site, theme, and page data for the current page. It works in both <code>.md</code> and <code>.vue</code> files:</p><div class="language-md vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">md</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;script setup&gt;</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">import { useData } from &#39;vitepress&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">const { theme, page, frontmatter } = useData()</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;/script&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;">## Results</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;">### Theme Data</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;pre&gt;{{ theme }}&lt;/pre&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;">### Page Data</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;pre&gt;{{ page }}&lt;/pre&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold;">### Page Frontmatter</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;pre&gt;{{ frontmatter }}&lt;/pre&gt;</span></span></code></pre></div><h2 id="results" tabindex="-1">Results <a class="header-anchor" href="#results" aria-label="Permalink to &quot;Results&quot;">​</a></h2><h3 id="theme-data" tabindex="-1">Theme Data <a class="header-anchor" href="#theme-data" aria-label="Permalink to &quot;Theme Data&quot;">​</a></h3><pre>{
+  &quot;search&quot;: {
+    &quot;provider&quot;: &quot;local&quot;
+  },
+  &quot;nav&quot;: [
+    {
+      &quot;text&quot;: &quot;Home&quot;,
+      &quot;link&quot;: &quot;/&quot;
+    },
+    {
+      &quot;text&quot;: &quot;APP&quot;,
+      &quot;items&quot;: [
+        {
+          &quot;text&quot;: &quot;deepwiki&quot;,
+          &quot;link&quot;: &quot;https://deepwiki.com&quot;
+        }
+      ]
+    },
+    {
+      &quot;text&quot;: &quot;LLM&quot;,
+      &quot;link&quot;: &quot;/llm&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Agent&quot;,
+      &quot;link&quot;: &quot;/agent&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Eval&quot;,
+      &quot;link&quot;: &quot;/eval&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Prompt&quot;,
+      &quot;link&quot;: &quot;/tutorial&quot;
+    },
+    {
+      &quot;text&quot;: &quot;MCP&quot;,
+      &quot;items&quot;: [
+        {
+          &quot;text&quot;: &quot;Protocol&quot;,
+          &quot;link&quot;: &quot;https://modelcontextprotocol.io/introduction&quot;
+        },
+        {
+          &quot;text&quot;: &quot;Python-SDK&quot;,
+          &quot;link&quot;: &quot;https://deepwiki.com/modelcontextprotocol/python-sdk/&quot;
+        }
+      ]
+    },
+    {
+      &quot;text&quot;: &quot;Tutorial&quot;,
+      &quot;link&quot;: &quot;/tutorial&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Docs&quot;,
+      &quot;items&quot;: [
+        {
+          &quot;text&quot;: &quot;OpenAI&quot;,
+          &quot;link&quot;: &quot;/docs/openai/guides&quot;
+        },
+        {
+          &quot;text&quot;: &quot;Anthropic&quot;,
+          &quot;link&quot;: &quot;/docs/anthropic&quot;
+        },
+        {
+          &quot;text&quot;: &quot;Vitepress&quot;,
+          &quot;link&quot;: &quot;/docs/examples/vitepress&quot;
+        }
+      ]
+    },
+    {
+      &quot;text&quot;: &quot;About&quot;,
+      &quot;items&quot;: [
+        {
+          &quot;text&quot;: &quot;Team&quot;,
+          &quot;link&quot;: &quot;/about/team&quot;
+        }
+      ]
+    }
+  ],
+  &quot;sidebar&quot;: {
+    &quot;/docs/examples/vitepress&quot;: [
+      {
+        &quot;text&quot;: &quot;Examples&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Markdown Examples&quot;,
+            &quot;link&quot;: &quot;/docs/examples/vitepress/markdown-examples&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Runtime API Examples&quot;,
+            &quot;link&quot;: &quot;/docs/examples/vitepress/api-examples&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Emoji&quot;,
+            &quot;link&quot;: &quot;/docs/examples/vitepress/emoji&quot;
+          }
+        ]
+      }
+    ],
+    &quot;/docs/openai&quot;: [
+      {
+        &quot;text&quot;: &quot;GET STARTED&quot;,
+        &quot;base&quot;: &quot;/docs/openai&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Quickstart&quot;,
+            &quot;link&quot;: &quot;/quickstart&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Quickstart(chat)&quot;,
+            &quot;link&quot;: &quot;/quickstart-chat&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Libraries&quot;,
+            &quot;link&quot;: &quot;/libraries&quot;
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;CORE CONCEPTS&quot;,
+        &quot;base&quot;: &quot;/docs/openai&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Text and prompting&quot;,
+            &quot;link&quot;: &quot;/guides/text&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Text and prompting(chat)&quot;,
+            &quot;link&quot;: &quot;/guides/text-chat&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Images and vision&quot;,
+            &quot;link&quot;: &quot;/guides/images-vision&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Images and vision(chat)&quot;,
+            &quot;link&quot;: &quot;/guides/images-vision-chat&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Audio and speech&quot;,
+            &quot;link&quot;: &quot;/guides/audio&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Structured Outputs&quot;,
+            &quot;link&quot;: &quot;/guides/structured-outputs&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Structured Outputs(chat)&quot;,
+            &quot;link&quot;: &quot;/guides/structured-outputs-chat&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Function calling&quot;,
+            &quot;link&quot;: &quot;/guides/function-calling&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Function calling(chat)&quot;,
+            &quot;link&quot;: &quot;/guides/function-calling-chat&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Conversation state&quot;,
+            &quot;link&quot;: &quot;/guides/conversation-state&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Conversation state(chat)&quot;,
+            &quot;link&quot;: &quot;/guides/conversation-state-chat&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Streaming&quot;,
+            &quot;link&quot;: &quot;/guides/streaming-responses&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Streaming(chat)&quot;,
+            &quot;link&quot;: &quot;/guides/streaming-responses-chat&quot;
+          },
+          {
+            &quot;text&quot;: &quot;File inputs&quot;,
+            &quot;link&quot;: &quot;/guides/pdf-files&quot;
+          },
+          {
+            &quot;text&quot;: &quot;File inputs(chat)&quot;,
+            &quot;link&quot;: &quot;/guides/pdf-files-chat&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Reasoning&quot;,
+            &quot;link&quot;: &quot;/guides/reasoning&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Reasoning(chat)&quot;,
+            &quot;link&quot;: &quot;/guides/reasoning-chat&quot;
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;BUILT-IN TOOLS&quot;,
+        &quot;base&quot;: &quot;/docs/openai&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Using built-in tools&quot;,
+            &quot;link&quot;: &quot;/guides/tools&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Web search&quot;,
+            &quot;link&quot;: &quot;/guides/tools-web-search&quot;
+          },
+          {
+            &quot;text&quot;: &quot;File search&quot;,
+            &quot;link&quot;: &quot;/guides/tools-file-search&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Computer use&quot;,
+            &quot;link&quot;: &quot;/guides/tools-computer-use&quot;
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;AGENTS&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Building agents&quot;,
+            &quot;link&quot;: &quot;/docs/openai/guides/agents&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Voice agents&quot;,
+            &quot;link&quot;: &quot;/docs/openai/guides/voice-agents&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Voice agents(chained)&quot;,
+            &quot;link&quot;: &quot;/docs/openai/guides/voice-agents-chained&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Agents SDK&quot;,
+            &quot;link&quot;: &quot;https://openai.github.io/openai-agents-python/&quot;
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;REALTIME API&quot;,
+        &quot;base&quot;: &quot;/docs/openai&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Using the Realtime API&quot;,
+            &quot;link&quot;: &quot;/guides/realtime&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Realtime conversations&quot;,
+            &quot;link&quot;: &quot;/guides/realtime-conversations&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Realtime transcription&quot;,
+            &quot;link&quot;: &quot;/guides/realtime-transcription&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Voice activity detection&quot;,
+            &quot;link&quot;: &quot;/guides/realtime-vad&quot;
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;MODEL OPTIMIZATION&quot;,
+        &quot;base&quot;: &quot;/docs/openai&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Overview&quot;,
+            &quot;link&quot;: &quot;/guides/model-optimization&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Evals&quot;,
+            &quot;link&quot;: &quot;/guides/evals&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Fine-tuning&quot;,
+            &quot;link&quot;: &quot;/guides/fine-tuning&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Supervised fine-tuning&quot;,
+            &quot;link&quot;: &quot;/guides/supervised-fine-tuning&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Vision fine-tuning&quot;,
+            &quot;link&quot;: &quot;/guides/vision-fine-tuning&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Direct preference optimization&quot;,
+            &quot;link&quot;: &quot;/guides/direct-preference-optimization&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Reinforcement fine-tuning&quot;,
+            &quot;link&quot;: &quot;/guides/reinforcement-fine-tuning&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Graders&quot;,
+            &quot;link&quot;: &quot;/guides/graders&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Distillation&quot;,
+            &quot;link&quot;: &quot;/guides/distillation&quot;
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;SPECIALIZED MODELS&quot;,
+        &quot;base&quot;: &quot;/docs/openai&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Image generation&quot;,
+            &quot;link&quot;: &quot;/guides/image-generation&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Text to speech&quot;,
+            &quot;link&quot;: &quot;/guides/text-to-speech&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Speech to text&quot;,
+            &quot;link&quot;: &quot;/guides/speech-to-text&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Embeddings&quot;,
+            &quot;link&quot;: &quot;/guides/embeddings&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Moderation&quot;,
+            &quot;link&quot;: &quot;/guides/moderation&quot;
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;OPENAI PLATFORM&quot;,
+        &quot;base&quot;: &quot;/docs/openai&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Retrieval&quot;,
+            &quot;link&quot;: &quot;/guides/retrieval&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Batch&quot;,
+            &quot;link&quot;: &quot;/guides/batch&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Prompt generation&quot;,
+            &quot;link&quot;: &quot;/guides/prompt-generation&quot;
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;CODEX&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Codex&quot;,
+            &quot;link&quot;: &quot;/docs/openai/guides/codex&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Local shell tool&quot;,
+            &quot;link&quot;: &quot;/docs/openai/guides/tools-local-shell&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Codex CLI&quot;,
+            &quot;link&quot;: &quot;https://github.com/openai/codex&quot;
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;BEST PRACTICES&quot;,
+        &quot;base&quot;: &quot;/docs/openai&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Production best practices&quot;,
+            &quot;link&quot;: &quot;/guides/production-best-practices&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Safety best practices&quot;,
+            &quot;link&quot;: &quot;/guides/safety-best-practices&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Prompt Caching&quot;,
+            &quot;link&quot;: &quot;/guides/prompt-caching&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Predicted Outputs&quot;,
+            &quot;link&quot;: &quot;/guides/predicted-outputs&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Reasoning best practices&quot;,
+            &quot;link&quot;: &quot;/guides/reasoning-best-practices&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Evals design&quot;,
+            &quot;link&quot;: &quot;/guides/evals-design&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Fine-tuning best practices&quot;,
+            &quot;link&quot;: &quot;/guides/fine-tuning-best-practices&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Reinforcement fine-tuning use cases&quot;,
+            &quot;link&quot;: &quot;/guides/rft-use-cases&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Model selection&quot;,
+            &quot;link&quot;: &quot;/guides/model-selection&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Latency optimization&quot;,
+            &quot;link&quot;: &quot;/guides/latency-optimization&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Accuracy optimization&quot;,
+            &quot;link&quot;: &quot;/guides/accuracy-optimization&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Advanced usage&quot;,
+            &quot;link&quot;: &quot;/guides/advanced-usage&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Responses vs. Chat Completions&quot;,
+            &quot;link&quot;: &quot;/guides/responses-vs-chat-completions&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Flex processing&quot;,
+            &quot;link&quot;: &quot;/guides/flex-processing&quot;
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;ASSISTANTS API&quot;,
+        &quot;base&quot;: &quot;/docs/openai&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Overview&quot;,
+            &quot;link&quot;: &quot;/assistants/overview&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Quickstart&quot;,
+            &quot;link&quot;: &quot;/assistants/quickstart&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Deep dive&quot;,
+            &quot;link&quot;: &quot;/assistants/deep-dive&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Tools&quot;,
+            &quot;collapsed&quot;: true,
+            &quot;items&quot;: [
+              {
+                &quot;text&quot;: &quot;File Search&quot;,
+                &quot;link&quot;: &quot;/assistants/tools/file-search&quot;
+              },
+              {
+                &quot;text&quot;: &quot;Code interpreter&quot;,
+                &quot;link&quot;: &quot;/assistants/tools/code-interpreter&quot;
+              },
+              {
+                &quot;text&quot;: &quot;Function calling&quot;,
+                &quot;link&quot;: &quot;/assistants/tools/function-calling&quot;
+              }
+            ]
+          },
+          {
+            &quot;text&quot;: &quot;What&#39;s new&quot;,
+            &quot;link&quot;: &quot;/assistants/whats-new&quot;
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;RESOURCES&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Terms and policies&quot;,
+            &quot;link&quot;: &quot;https://openai.com/policies/&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Changelog&quot;,
+            &quot;link&quot;: &quot;https://platform.openai.com/docs/changelog&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Your data&quot;,
+            &quot;link&quot;: &quot;/docs/openai/guides/your-data&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Rate limits&quot;,
+            &quot;link&quot;: &quot;/docs/openai/guides/rate-limits&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Deprecations&quot;,
+            &quot;link&quot;: &quot;/docs/openai/deprecations&quot;
+          },
+          {
+            &quot;text&quot;: &quot;ChatGPT Actions&quot;,
+            &quot;base&quot;: &quot;/docs/openai&quot;,
+            &quot;collapsed&quot;: true,
+            &quot;items&quot;: [
+              {
+                &quot;text&quot;: &quot;Introduction&quot;,
+                &quot;link&quot;: &quot;/actions/introduction&quot;
+              },
+              {
+                &quot;text&quot;: &quot;Getting started&quot;,
+                &quot;link&quot;: &quot;/actions/getting-started&quot;
+              },
+              {
+                &quot;text&quot;: &quot;Actions library&quot;,
+                &quot;link&quot;: &quot;/actions/actions-library&quot;
+              },
+              {
+                &quot;text&quot;: &quot;Authentication&quot;,
+                &quot;link&quot;: &quot;/actions/authentication&quot;
+              },
+              {
+                &quot;text&quot;: &quot;Production&quot;,
+                &quot;link&quot;: &quot;/actions/production&quot;
+              },
+              {
+                &quot;text&quot;: &quot;Data retrieval&quot;,
+                &quot;link&quot;: &quot;/actions/data-retrieval&quot;
+              },
+              {
+                &quot;text&quot;: &quot;Sending files&quot;,
+                &quot;link&quot;: &quot;/actions/sending-files&quot;
+              }
+            ]
+          }
+        ]
+      },
+      {
+        &quot;text&quot;: &quot;&quot;,
+        &quot;items&quot;: [
+          {
+            &quot;text&quot;: &quot;Cookbook&quot;,
+            &quot;link&quot;: &quot;https://cookbook.openai.com/&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Forum&quot;,
+            &quot;link&quot;: &quot;https://community.openai.com/categories&quot;
+          },
+          {
+            &quot;text&quot;: &quot;Help&quot;,
+            &quot;link&quot;: &quot;&quot;
+          }
+        ]
+      }
+    ]
+  },
+  &quot;footer&quot;: {
+    &quot;message&quot;: &quot;build with &lt;a href=\&quot;https://github.com/vuejs/vitepress\&quot;&gt;vitepress&lt;/a&gt;&quot;,
+    &quot;copyright&quot;: &quot;Copyright © 2023-present by NOTHING&quot;
+  },
+  &quot;socialLinks&quot;: [
+    {
+      &quot;icon&quot;: &quot;wechat&quot;,
+      &quot;link&quot;: &quot;/about/team&quot;
+    }
+  ]
+}</pre><h3 id="page-data" tabindex="-1">Page Data <a class="header-anchor" href="#page-data" aria-label="Permalink to &quot;Page Data&quot;">​</a></h3><pre>{
+  &quot;title&quot;: &quot;Runtime API Examples&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;frontmatter&quot;: {
+    &quot;outline&quot;: &quot;deep&quot;
+  },
+  &quot;headers&quot;: [],
+  &quot;relativePath&quot;: &quot;docs/examples/vitepress/api-examples.md&quot;,
+  &quot;filePath&quot;: &quot;docs/examples/vitepress/api-examples.md&quot;,
+  &quot;lastUpdated&quot;: 1747747486000
+}</pre><h3 id="page-frontmatter" tabindex="-1">Page Frontmatter <a class="header-anchor" href="#page-frontmatter" aria-label="Permalink to &quot;Page Frontmatter&quot;">​</a></h3><pre>{
+  &quot;outline&quot;: &quot;deep&quot;
+}</pre><h2 id="more" tabindex="-1">More <a class="header-anchor" href="#more" aria-label="Permalink to &quot;More&quot;">​</a></h2><p>Check out the documentation for the <a href="https://vitepress.dev/reference/runtime-api#usedata" target="_blank" rel="noreferrer">full list of runtime APIs</a>.</p></div></div></main><footer class="VPDocFooter" data-v-e6f2a212 data-v-1bcd8184><!--[--><!--]--><div class="edit-info" data-v-1bcd8184><!----><div class="last-updated" data-v-1bcd8184><p class="VPLastUpdated" data-v-1bcd8184 data-v-1bb0c8a8>Last updated: <time datetime="2025-05-20T13:24:46.000Z" data-v-1bb0c8a8></time></p></div></div><nav class="prev-next" aria-labelledby="doc-footer-aria-label" data-v-1bcd8184><span class="visually-hidden" id="doc-footer-aria-label" data-v-1bcd8184>Pager</span><div class="pager" data-v-1bcd8184><a class="VPLink link pager-link prev" href="/docs/examples/vitepress/markdown-examples" data-v-1bcd8184><!--[--><span class="desc" data-v-1bcd8184>Previous page</span><span class="title" data-v-1bcd8184>Markdown Examples</span><!--]--></a></div><div class="pager" data-v-1bcd8184><a class="VPLink link pager-link next" href="/docs/examples/vitepress/emoji" data-v-1bcd8184><!--[--><span class="desc" data-v-1bcd8184>Next page</span><span class="title" data-v-1bcd8184>Emoji</span><!--]--></a></div></nav></footer><!--[--><!--]--></div></div></div><!--[--><!--]--></div></div><footer class="VPFooter has-sidebar" data-v-d8b57b2d data-v-566314d4><div class="container" data-v-566314d4><p class="message" data-v-566314d4>build with <a href="https://github.com/vuejs/vitepress">vitepress</a></p><p class="copyright" data-v-566314d4>Copyright © 2023-present by NOTHING</p></div></footer><!--[--><!--]--></div></div>
+    <script>window.__VP_HASH_MAP__=JSON.parse("{\"about_team.md\":\"-0jJ-uE7\",\"agent_index.md\":\"gvwBVkL4\",\"docs_anthropic_index.md\":\"BG_GHy5s\",\"docs_anthropic_prompt_generator_atrhopic.md\":\"C8qQzsPK\",\"docs_examples_vitepress_api-examples.md\":\"Dm37ROcB\",\"docs_examples_vitepress_emoji.md\":\"BY6x7ny1\",\"docs_examples_vitepress_index.md\":\"DwRZ01m2\",\"docs_examples_vitepress_markdown-examples.md\":\"Bf8CSez9\",\"docs_openai_actions_actions-library.md\":\"Dy_1-98e\",\"docs_openai_actions_authentication.md\":\"PteK4cw4\",\"docs_openai_actions_data-retrieval.md\":\"COjnQOg2\",\"docs_openai_actions_getting-started.md\":\"DS2d7s23\",\"docs_openai_actions_introduction.md\":\"tP7LTMpY\",\"docs_openai_actions_production.md\":\"DkHgBriB\",\"docs_openai_actions_sending-files.md\":\"BvQvsXTq\",\"docs_openai_assistants_deep-dive.md\":\"C5KXLFsb\",\"docs_openai_assistants_overview.md\":\"CjpybNLs\",\"docs_openai_assistants_quickstart.md\":\"D2rCFmyF\",\"docs_openai_assistants_tools_code-interpreter.md\":\"D1oDSl9u\",\"docs_openai_assistants_tools_file-search.md\":\"xY4Z9VaS\",\"docs_openai_assistants_tools_function-calling.md\":\"BORvEpWo\",\"docs_openai_assistants_whats-new.md\":\"CTCgn3hG\",\"docs_openai_deprecations.md\":\"DstjD0mh\",\"docs_openai_guides_accuracy-optimization.md\":\"Dw2aldch\",\"docs_openai_guides_advanced-usage.md\":\"CvENuZHz\",\"docs_openai_guides_agents.md\":\"xudhEKCm\",\"docs_openai_guides_audio.md\":\"CI38lvt0\",\"docs_openai_guides_batch.md\":\"BG43bEkx\",\"docs_openai_guides_codex.md\":\"CF1AGuBC\",\"docs_openai_guides_conversation-state-chat.md\":\"CSHADvqz\",\"docs_openai_guides_conversation-state.md\":\"DuYMBxpX\",\"docs_openai_guides_direct-preference-optimization.md\":\"CFaxCdu3\",\"docs_openai_guides_distillation.md\":\"DnA7E7rb\",\"docs_openai_guides_embeddings.md\":\"CKCaUl6M\",\"docs_openai_guides_evals-design.md\":\"DeSJ1TZw\",\"docs_openai_guides_evals.md\":\"CVQY5o8a\",\"docs_openai_guides_fine-tuning-best-practices.md\":\"D6pFthPx\",\"docs_openai_guides_fine-tuning.md\":\"DU9Dqnho\",\"docs_openai_guides_flex-processing.md\":\"BPkD2AXq\",\"docs_openai_guides_function-calling-chat.md\":\"DhPHI38N\",\"docs_openai_guides_function-calling.md\":\"C_2mP07F\",\"docs_openai_guides_graders.md\":\"Ce3c5Q0M\",\"docs_openai_guides_image-generation.md\":\"C77in6K1\",\"docs_openai_guides_images-vision-chat.md\":\"D8oq4ayf\",\"docs_openai_guides_images-vision.md\":\"MHqQn9hE\",\"docs_openai_guides_index.md\":\"Du75bavh\",\"docs_openai_guides_latency-optimization.md\":\"Bdl-zHEA\",\"docs_openai_guides_model-optimization.md\":\"CQ6OycGY\",\"docs_openai_guides_model-selection.md\":\"CGlJuDPV\",\"docs_openai_guides_moderation.md\":\"jcgyGp9W\",\"docs_openai_guides_pdf-files-chat.md\":\"DxoAoY9o\",\"docs_openai_guides_pdf-files.md\":\"BdoLEL2u\",\"docs_openai_guides_predicted-outputs.md\":\"icwfPL37\",\"docs_openai_guides_production-best-practices.md\":\"Bcia6dYs\",\"docs_openai_guides_prompt-caching.md\":\"Dsscblyt\",\"docs_openai_guides_prompt-generation.md\":\"CODCixo7\",\"docs_openai_guides_rate-limits.md\":\"D1rXzFYO\",\"docs_openai_guides_realtime-conversations.md\":\"DPVzU38o\",\"docs_openai_guides_realtime-transcription.md\":\"LiLkxGc_\",\"docs_openai_guides_realtime-vad.md\":\"6ESKCKCw\",\"docs_openai_guides_realtime.md\":\"2Td_rR59\",\"docs_openai_guides_reasoning-best-practices.md\":\"hZRxWKvJ\",\"docs_openai_guides_reasoning-chat.md\":\"Ctm3J4Nn\",\"docs_openai_guides_reasoning.md\":\"Dzg2Y_83\",\"docs_openai_guides_reinforcement-fine-tuning.md\":\"DSXgnugN\",\"docs_openai_guides_responses-vs-chat-completions.md\":\"DsJg1iLh\",\"docs_openai_guides_retrieval.md\":\"DUho1Hsu\",\"docs_openai_guides_rft-use-cases.md\":\"Ddhb_7ZO\",\"docs_openai_guides_safety-best-practices.md\":\"BvxZa0Rz\",\"docs_openai_guides_speech-to-text.md\":\"BANtTAOy\",\"docs_openai_guides_streaming-responses-chat.md\":\"mIEd1PS4\",\"docs_openai_guides_streaming-responses.md\":\"D88OgPDB\",\"docs_openai_guides_structured-outputs-chat.md\":\"wX_fucdC\",\"docs_openai_guides_structured-outputs.md\":\"5TdYfdeE\",\"docs_openai_guides_supervised-fine-tuning.md\":\"CRads_ab\",\"docs_openai_guides_text-chat.md\":\"Cr4Eu5kY\",\"docs_openai_guides_text-to-speech.md\":\"rbnI3ywk\",\"docs_openai_guides_text.md\":\"BQk83Yy6\",\"docs_openai_guides_tools-computer-use.md\":\"CRB0cOYZ\",\"docs_openai_guides_tools-file-search.md\":\"ys6w-5oo\",\"docs_openai_guides_tools-local-shell.md\":\"CNPrRDuC\",\"docs_openai_guides_tools-web-search.md\":\"BJK-Kgta\",\"docs_openai_guides_tools.md\":\"ORq_P-ZN\",\"docs_openai_guides_vision-fine-tuning.md\":\"Dl21uo_Y\",\"docs_openai_guides_voice-agents-chained.md\":\"t8aVpiyP\",\"docs_openai_guides_voice-agents.md\":\"BugHgwDF\",\"docs_openai_guides_your-data.md\":\"pWjhxPZs\",\"docs_openai_libraries.md\":\"rA_KpGyB\",\"docs_openai_quickstart-chat.md\":\"Cxov1A6b\",\"docs_openai_quickstart.md\":\"BqUWHyRT\",\"eval_index.md\":\"DP94yzjH\",\"index.md\":\"CfXNoIs9\",\"llm_index.md\":\"CXlzETPC\",\"readme.md\":\"jy6qJIiQ\",\"tutorial_index.md\":\"DHqSMg3W\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"DaQianAI\",\"description\":\"The ultimate AI\",\"base\":\"/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{\"search\":{\"provider\":\"local\"},\"nav\":[{\"text\":\"Home\",\"link\":\"/\"},{\"text\":\"APP\",\"items\":[{\"text\":\"deepwiki\",\"link\":\"https://deepwiki.com\"}]},{\"text\":\"LLM\",\"link\":\"/llm\"},{\"text\":\"Agent\",\"link\":\"/agent\"},{\"text\":\"Eval\",\"link\":\"/eval\"},{\"text\":\"Prompt\",\"link\":\"/tutorial\"},{\"text\":\"MCP\",\"items\":[{\"text\":\"Protocol\",\"link\":\"https://modelcontextprotocol.io/introduction\"},{\"text\":\"Python-SDK\",\"link\":\"https://deepwiki.com/modelcontextprotocol/python-sdk/\"}]},{\"text\":\"Tutorial\",\"link\":\"/tutorial\"},{\"text\":\"Docs\",\"items\":[{\"text\":\"OpenAI\",\"link\":\"/docs/openai/guides\"},{\"text\":\"Anthropic\",\"link\":\"/docs/anthropic\"},{\"text\":\"Vitepress\",\"link\":\"/docs/examples/vitepress\"}]},{\"text\":\"About\",\"items\":[{\"text\":\"Team\",\"link\":\"/about/team\"}]}],\"sidebar\":{\"/docs/examples/vitepress\":[{\"text\":\"Examples\",\"items\":[{\"text\":\"Markdown Examples\",\"link\":\"/docs/examples/vitepress/markdown-examples\"},{\"text\":\"Runtime API Examples\",\"link\":\"/docs/examples/vitepress/api-examples\"},{\"text\":\"Emoji\",\"link\":\"/docs/examples/vitepress/emoji\"}]}],\"/docs/openai\":[{\"text\":\"GET STARTED\",\"base\":\"/docs/openai\",\"items\":[{\"text\":\"Quickstart\",\"link\":\"/quickstart\"},{\"text\":\"Quickstart(chat)\",\"link\":\"/quickstart-chat\"},{\"text\":\"Libraries\",\"link\":\"/libraries\"}]},{\"text\":\"CORE CONCEPTS\",\"base\":\"/docs/openai\",\"items\":[{\"text\":\"Text and prompting\",\"link\":\"/guides/text\"},{\"text\":\"Text and prompting(chat)\",\"link\":\"/guides/text-chat\"},{\"text\":\"Images and vision\",\"link\":\"/guides/images-vision\"},{\"text\":\"Images and vision(chat)\",\"link\":\"/guides/images-vision-chat\"},{\"text\":\"Audio and speech\",\"link\":\"/guides/audio\"},{\"text\":\"Structured Outputs\",\"link\":\"/guides/structured-outputs\"},{\"text\":\"Structured Outputs(chat)\",\"link\":\"/guides/structured-outputs-chat\"},{\"text\":\"Function calling\",\"link\":\"/guides/function-calling\"},{\"text\":\"Function calling(chat)\",\"link\":\"/guides/function-calling-chat\"},{\"text\":\"Conversation state\",\"link\":\"/guides/conversation-state\"},{\"text\":\"Conversation state(chat)\",\"link\":\"/guides/conversation-state-chat\"},{\"text\":\"Streaming\",\"link\":\"/guides/streaming-responses\"},{\"text\":\"Streaming(chat)\",\"link\":\"/guides/streaming-responses-chat\"},{\"text\":\"File inputs\",\"link\":\"/guides/pdf-files\"},{\"text\":\"File inputs(chat)\",\"link\":\"/guides/pdf-files-chat\"},{\"text\":\"Reasoning\",\"link\":\"/guides/reasoning\"},{\"text\":\"Reasoning(chat)\",\"link\":\"/guides/reasoning-chat\"}]},{\"text\":\"BUILT-IN TOOLS\",\"base\":\"/docs/openai\",\"items\":[{\"text\":\"Using built-in tools\",\"link\":\"/guides/tools\"},{\"text\":\"Web search\",\"link\":\"/guides/tools-web-search\"},{\"text\":\"File search\",\"link\":\"/guides/tools-file-search\"},{\"text\":\"Computer use\",\"link\":\"/guides/tools-computer-use\"}]},{\"text\":\"AGENTS\",\"items\":[{\"text\":\"Building agents\",\"link\":\"/docs/openai/guides/agents\"},{\"text\":\"Voice agents\",\"link\":\"/docs/openai/guides/voice-agents\"},{\"text\":\"Voice agents(chained)\",\"link\":\"/docs/openai/guides/voice-agents-chained\"},{\"text\":\"Agents SDK\",\"link\":\"https://openai.github.io/openai-agents-python/\"}]},{\"text\":\"REALTIME API\",\"base\":\"/docs/openai\",\"items\":[{\"text\":\"Using the Realtime API\",\"link\":\"/guides/realtime\"},{\"text\":\"Realtime conversations\",\"link\":\"/guides/realtime-conversations\"},{\"text\":\"Realtime transcription\",\"link\":\"/guides/realtime-transcription\"},{\"text\":\"Voice activity detection\",\"link\":\"/guides/realtime-vad\"}]},{\"text\":\"MODEL OPTIMIZATION\",\"base\":\"/docs/openai\",\"items\":[{\"text\":\"Overview\",\"link\":\"/guides/model-optimization\"},{\"text\":\"Evals\",\"link\":\"/guides/evals\"},{\"text\":\"Fine-tuning\",\"link\":\"/guides/fine-tuning\"},{\"text\":\"Supervised fine-tuning\",\"link\":\"/guides/supervised-fine-tuning\"},{\"text\":\"Vision fine-tuning\",\"link\":\"/guides/vision-fine-tuning\"},{\"text\":\"Direct preference optimization\",\"link\":\"/guides/direct-preference-optimization\"},{\"text\":\"Reinforcement fine-tuning\",\"link\":\"/guides/reinforcement-fine-tuning\"},{\"text\":\"Graders\",\"link\":\"/guides/graders\"},{\"text\":\"Distillation\",\"link\":\"/guides/distillation\"}]},{\"text\":\"SPECIALIZED MODELS\",\"base\":\"/docs/openai\",\"items\":[{\"text\":\"Image generation\",\"link\":\"/guides/image-generation\"},{\"text\":\"Text to speech\",\"link\":\"/guides/text-to-speech\"},{\"text\":\"Speech to text\",\"link\":\"/guides/speech-to-text\"},{\"text\":\"Embeddings\",\"link\":\"/guides/embeddings\"},{\"text\":\"Moderation\",\"link\":\"/guides/moderation\"}]},{\"text\":\"OPENAI PLATFORM\",\"base\":\"/docs/openai\",\"items\":[{\"text\":\"Retrieval\",\"link\":\"/guides/retrieval\"},{\"text\":\"Batch\",\"link\":\"/guides/batch\"},{\"text\":\"Prompt generation\",\"link\":\"/guides/prompt-generation\"}]},{\"text\":\"CODEX\",\"items\":[{\"text\":\"Codex\",\"link\":\"/docs/openai/guides/codex\"},{\"text\":\"Local shell tool\",\"link\":\"/docs/openai/guides/tools-local-shell\"},{\"text\":\"Codex CLI\",\"link\":\"https://github.com/openai/codex\"}]},{\"text\":\"BEST PRACTICES\",\"base\":\"/docs/openai\",\"items\":[{\"text\":\"Production best practices\",\"link\":\"/guides/production-best-practices\"},{\"text\":\"Safety best practices\",\"link\":\"/guides/safety-best-practices\"},{\"text\":\"Prompt Caching\",\"link\":\"/guides/prompt-caching\"},{\"text\":\"Predicted Outputs\",\"link\":\"/guides/predicted-outputs\"},{\"text\":\"Reasoning best practices\",\"link\":\"/guides/reasoning-best-practices\"},{\"text\":\"Evals design\",\"link\":\"/guides/evals-design\"},{\"text\":\"Fine-tuning best practices\",\"link\":\"/guides/fine-tuning-best-practices\"},{\"text\":\"Reinforcement fine-tuning use cases\",\"link\":\"/guides/rft-use-cases\"},{\"text\":\"Model selection\",\"link\":\"/guides/model-selection\"},{\"text\":\"Latency optimization\",\"link\":\"/guides/latency-optimization\"},{\"text\":\"Accuracy optimization\",\"link\":\"/guides/accuracy-optimization\"},{\"text\":\"Advanced usage\",\"link\":\"/guides/advanced-usage\"},{\"text\":\"Responses vs. Chat Completions\",\"link\":\"/guides/responses-vs-chat-completions\"},{\"text\":\"Flex processing\",\"link\":\"/guides/flex-processing\"}]},{\"text\":\"ASSISTANTS API\",\"base\":\"/docs/openai\",\"items\":[{\"text\":\"Overview\",\"link\":\"/assistants/overview\"},{\"text\":\"Quickstart\",\"link\":\"/assistants/quickstart\"},{\"text\":\"Deep dive\",\"link\":\"/assistants/deep-dive\"},{\"text\":\"Tools\",\"collapsed\":true,\"items\":[{\"text\":\"File Search\",\"link\":\"/assistants/tools/file-search\"},{\"text\":\"Code interpreter\",\"link\":\"/assistants/tools/code-interpreter\"},{\"text\":\"Function calling\",\"link\":\"/assistants/tools/function-calling\"}]},{\"text\":\"What's new\",\"link\":\"/assistants/whats-new\"}]},{\"text\":\"RESOURCES\",\"items\":[{\"text\":\"Terms and policies\",\"link\":\"https://openai.com/policies/\"},{\"text\":\"Changelog\",\"link\":\"https://platform.openai.com/docs/changelog\"},{\"text\":\"Your data\",\"link\":\"/docs/openai/guides/your-data\"},{\"text\":\"Rate limits\",\"link\":\"/docs/openai/guides/rate-limits\"},{\"text\":\"Deprecations\",\"link\":\"/docs/openai/deprecations\"},{\"text\":\"ChatGPT Actions\",\"base\":\"/docs/openai\",\"collapsed\":true,\"items\":[{\"text\":\"Introduction\",\"link\":\"/actions/introduction\"},{\"text\":\"Getting started\",\"link\":\"/actions/getting-started\"},{\"text\":\"Actions library\",\"link\":\"/actions/actions-library\"},{\"text\":\"Authentication\",\"link\":\"/actions/authentication\"},{\"text\":\"Production\",\"link\":\"/actions/production\"},{\"text\":\"Data retrieval\",\"link\":\"/actions/data-retrieval\"},{\"text\":\"Sending files\",\"link\":\"/actions/sending-files\"}]}]},{\"text\":\"\",\"items\":[{\"text\":\"Cookbook\",\"link\":\"https://cookbook.openai.com/\"},{\"text\":\"Forum\",\"link\":\"https://community.openai.com/categories\"},{\"text\":\"Help\",\"link\":\"\"}]}]},\"footer\":{\"message\":\"build with <a href=\\\"https://github.com/vuejs/vitepress\\\">vitepress</a>\",\"copyright\":\"Copyright © 2023-present by NOTHING\"},\"socialLinks\":[{\"icon\":\"wechat\",\"link\":\"/about/team\"}]},\"locales\":{},\"scrollOffset\":134,\"cleanUrls\":true}");</script>
+    
+  </body>
+</html>
